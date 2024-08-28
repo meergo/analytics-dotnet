@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Request
+namespace Meergo.Request
 {
     internal interface IRequestHandler
     {

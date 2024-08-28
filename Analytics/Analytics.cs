@@ -1,4 +1,4 @@
-namespace Segment
+namespace Meergo
 {
     public class Analytics
     {
@@ -13,7 +13,7 @@ namespace Segment
         public static Client Client { get; private set; }
 
         /// <summary>
-        /// Initialized the default Segment.io client with your API writeKey.
+        /// Initialized the default Meergo client with your API writeKey.
         /// </summary>
         /// <param name="writeKey"></param>
         public static void Initialize(string writeKey)
@@ -30,7 +30,7 @@ namespace Segment
         }
 
         /// <summary>
-        /// Initialized the default Segment.io client with your API writeKey.
+        /// Initialized the default Meergo client with your API writeKey.
         /// </summary>
         /// <param name="writeKey"></param>
         public static void Initialize(string writeKey, Config config)
@@ -45,7 +45,7 @@ namespace Segment
         }
 
         /// <summary>
-        /// Initialized the default Segment.io client with your Custom Client.
+        /// Initialized the default Meergo client with your Custom Client.
         /// </summary>
         /// <param name="client"></param>
         public static void Initialize(Client client)

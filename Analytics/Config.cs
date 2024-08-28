@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment
+namespace Meergo
 {
     /// <summary>
     /// Config required to initialize the client
@@ -14,7 +14,7 @@ namespace Segment
         /// <summary>
         /// The REST API endpoint
         /// </summary>
-        internal string Host { get; set; }
+        internal string Endpoint { get; set; }
 
         internal string UserAgent { get; set; }
 
@@ -41,20 +41,20 @@ namespace Segment
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="host">Endpoint for tracking api for Proxy Service</param>
+        /// <param name="endpoint">Endpoint for tracking api for Proxy Service</param>
         /// <param name="proxy"></param>
         /// <param name="timeout"></param>
         /// <param name="maxQueueSize">Queue size</param>
         /// <param name="flushAt">Number of items in a batch to upload</param>
         /// <param name="async">Sets whether the flushing to the server is synchronous or asynchronous</param>
         /// <param name="threads">Count of concurrent internal threads to post data from queue</param>
-        /// <param name="flushInterval">The frequency, in seconds, to send data to Segment</param>
+        /// <param name="flushInterval">The frequency, in seconds, to send data to Meergo</param>
         /// <param name="gzip">Compress data w/ gzip before dispatch</param>
-        /// <param name="send">Send data to Segment</param>
+        /// <param name="send">Send data to Meergo</param>
         /// <param name="userAgent">Sets User Agent Header</param>
         /// <param name="maxRetryTime">Max Amount of time to retry request when server timeout occurs</param>
         public Config(
-            string host = "https://api.segment.io",
+            string endpoint = "https://api.example.com",
             string proxy = null,
             TimeSpan? timeout = null,
             int maxQueueSize = 10000,
@@ -68,7 +68,7 @@ namespace Segment
             TimeSpan? maxRetryTime = null
             )
         {
-            this.Host = host;
+            this.Endpoint = endpoint;
             this.Proxy = proxy ?? "";
             this.Timeout = timeout ?? TimeSpan.FromSeconds(5);
             this.MaxQueueSize = maxQueueSize;
@@ -90,24 +90,24 @@ namespace Segment
 
 
         /// <summary>
-        /// Set the API host server address, instead of default server "https://api.segment.io"
+        /// Set the endpoint, instead of default endpoint "https://api.example.com"
         /// </summary>
-        /// <param name="host">Host server url</param>
+        /// <param name="endpoint">endpoint</param>
         /// <returns></returns>
-        public Config SetHost(string host)
+        public Config SetEndpoint(string endpoint)
         {
-            this.Host = host;
+            this.Endpoint = endpoint;
             return this;
         }
 
         /// <summary>
-        /// Gets the API host server address. Default server is "https://api.segment.io"
+        /// Gets the endpoint. Default endpoint is "https://api.exampple.com"
         /// </summary>
-        /// <param name="host">Host server url</param>
+        /// <param name="endpoint">endpoint</param>
         /// <returns></returns>
-        public string GetHost()
+        public string GetEndpoint()
         {
-            return Host;
+            return Endpoint;
         }
 
         /// <summary>
@@ -316,7 +316,7 @@ namespace Segment
         }
 
         /// <summary>
-        /// Send data to Segment
+        /// Send data to Meergo
         /// </summary>
         /// <param name="send"></param>
         /// <returns></returns>
@@ -327,7 +327,7 @@ namespace Segment
         }
 
         /// <summary>
-        /// Gets if it Sends data to Segment
+        /// Gets if it Sends data to Meergo
         /// </summary>
         /// <returns></returns>
         public bool GetSend()

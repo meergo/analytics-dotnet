@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Segment.Model
+namespace Meergo.Model
 {
     /// <summary>
     /// An API object wrapper over Dictionary<string, object>

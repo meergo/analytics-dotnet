@@ -1,7 +1,7 @@
 using System;
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     public class Actions
     {

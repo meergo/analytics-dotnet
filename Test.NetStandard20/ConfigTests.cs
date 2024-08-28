@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture]
     class ConfigTests
@@ -144,10 +144,10 @@ namespace Segment.Test
         }
 
         [Test]
-        public void GetHostProperty()
+        public void GetEndpointProperty()
         {
-            _config.SetHost("testHost.com");
-            Assert.AreEqual("testHost.com", _config.GetHost());
+            _config.SetEndpoint("testHost.com");
+            Assert.AreEqual("testHost.com", _config.GetEndpoint());
         }
     }
 }

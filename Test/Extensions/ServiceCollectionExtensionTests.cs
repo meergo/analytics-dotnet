@@ -3,10 +3,10 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Segment.Extensions;
+using Meergo.Extensions;
 
 
-namespace Segment.Test.Extensions
+namespace Meergo.Test.Extensions
 {
     [TestFixture]
     public class ServiceCollectionExtensionTests

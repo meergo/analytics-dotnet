@@ -1,10 +1,10 @@
 using NUnit.Framework;
-using Segment.Stats;
+using Meergo.Stats;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Segment.Test.Stats
+namespace Meergo.Test.Stats
 {
     [TestFixture]
     public class StatisticsTests

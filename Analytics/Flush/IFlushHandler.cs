@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Flush
+namespace Meergo.Flush
 {
     /// <summary>
     /// A component responsibe for flushing an action to the server

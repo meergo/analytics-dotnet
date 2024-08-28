@@ -1,5 +1,5 @@
 using System;
-using Segment;
+using Meergo;
 using Sloth.Common;
 using Environment = System.Environment;
 
@@ -12,15 +12,21 @@ namespace Sloth.Basic
         static void Main(string[] args)
         {
             var writeKey = Environment.GetEnvironmentVariable("writeKey");
+            var endpoint = Environment.GetEnvironmentVariable("endpoint");
 
             if (string.IsNullOrWhiteSpace(writeKey)) throw new ArgumentException(nameof(writeKey));
+            if (string.IsNullOrWhiteSpace(endpoint)) throw new ArgumentException(nameof(endpoint));
 
-            OnExecute(writeKey);
+            OnExecute(writeKey, endpoint);
         }
 
-        private static void OnExecute(string writeKey)
+        private static void OnExecute(string writeKey, string endpoint)
         {
-            Analytics.Initialize(writeKey);
+
+            var config = new Config()
+                .SetEndpoint(endpoint);
+
+            Analytics.Initialize(writeKey, config);
 
             Logger.Handlers += Utils.LoggerOnHandlers;
 

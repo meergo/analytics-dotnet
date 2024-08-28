@@ -1,5 +1,5 @@
 using System;
-using Segment;
+using Meergo;
 using Sloth.Common;
 
 namespace Sloth.Enterprise
@@ -12,17 +12,19 @@ namespace Sloth.Enterprise
         static void Main(string[] args)
         {
             var writeKey = Environment.GetEnvironmentVariable("writeKey");
+            var endpoint = Environment.GetEnvironmentVariable("endpoint");
 
             if (string.IsNullOrWhiteSpace(writeKey)) throw new ArgumentException(nameof(writeKey));
+            if (string.IsNullOrWhiteSpace(endpoint)) throw new ArgumentException(nameof(endpoint));
 
-            OnExecute(writeKey);
+            OnExecute(writeKey, endpoint);
         }
 
-        private static void OnExecute(string writeKey)
+        private static void OnExecute(string writeKey, string endpoint)
         {
             var config = new Config()
                 .SetMaxQueueSize(100000)
-                .SetHost("https://api.segment.dev")
+                .SetEndpoint(endpoint)
                 .SetMaxBatchSize(40)
                 .SetRequestCompression(true);
 

@@ -10,13 +10,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Segment.Exception;
-using Segment.Model;
-using Segment.Stats;
+using Meergo.Exception;
+using Meergo.Model;
+using Meergo.Stats;
 using System.IO;
 using System.IO.Compression;
 
-namespace Segment.Request
+namespace Meergo.Request
 {
 #if NET35
     internal interface IHttpClient
@@ -75,7 +75,7 @@ namespace Segment.Request
     internal class BlockingRequestHandler : IRequestHandler
     {
         /// <summary>
-        /// Segment.io client to mark statistics
+        /// Meergo client to mark statistics
         /// </summary>
         private readonly Client _client;
 
@@ -155,7 +155,7 @@ namespace Segment.Request
             _backo.Reset();
             try
             {
-                Uri uri = new Uri(_client.Config.Host + "/v1/import");
+                Uri uri = new Uri(_client.Config.Endpoint + "b");
 
                 // set the current request time
                 batch.SentAt = DateTime.Now.ToString("o");
@@ -163,7 +163,6 @@ namespace Segment.Request
                 string json = JsonConvert.SerializeObject(batch);
 
                 // Basic Authentication
-                // https://segment.io/docs/tracking-api/reference/#authentication
 #if NET35
                 _httpClient.Headers.Set("Authorization", "Basic " + BasicAuthHeader(batch.WriteKey, string.Empty));
                 _httpClient.Headers.Set("Content-Type", "application/json; charset=utf-8");
@@ -193,7 +192,7 @@ namespace Segment.Request
                     }
                 }
 
-                Logger.Info("Sending analytics request to Segment.io ..", new Dict
+                Logger.Info("Sending analytics request to Meergo ..", new Dict
                 {
                     { "batch id", batch.MessageId },
                     { "json size", json.Length },
@@ -241,7 +240,7 @@ namespace Segment.Request
                             }
                             else
                             {
-                                Logger.Info($"Internal Segment Server error CurrentAttempt:{_backo.CurrentAttempt} Retrying to send request", new Dict
+                                Logger.Info($"Internal Meergo Server error CurrentAttempt:{_backo.CurrentAttempt} Retrying to send request", new Dict
                                 {
                                     { "batch id", batch.MessageId },
                                     { "statusCode", statusCode },
@@ -343,7 +342,7 @@ namespace Segment.Request
                             }
                             else
                             {
-                                Logger.Info($"Internal Segment Server error CurrentAttempt:{_backo.CurrentAttempt} Retrying to send request", new Dict
+                                Logger.Info($"Internal Meergo Server error CurrentAttempt:{_backo.CurrentAttempt} Retrying to send request", new Dict
                                 {
                                     { "batch id", batch.MessageId },
                                     { "statusCode", statusCode },
@@ -383,7 +382,7 @@ namespace Segment.Request
                 _client.RaiseFailure(action, e);
             }
 
-            Logger.Info("Segment.io request failed.", new Dict
+            Logger.Info("Meergo request failed.", new Dict
             {
                 { "batch id", batch.MessageId },
                 { "reason", e.Message },
@@ -399,7 +398,7 @@ namespace Segment.Request
                 _client.RaiseSuccess(action);
             }
 
-            Logger.Info("Segment.io request successful.", new Dict
+            Logger.Info("Meergo request successful.", new Dict
             {
                 { "batch id", batch.MessageId },
                 { "duration (ms)", duration }

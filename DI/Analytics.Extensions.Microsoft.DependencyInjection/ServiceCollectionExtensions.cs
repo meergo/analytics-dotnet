@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Segment
+namespace Meergo
 {
     public static class ServiceCollectionExtensions
     {

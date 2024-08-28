@@ -2,11 +2,11 @@ using NUnit.Framework;
 
 using System;
 using Moq;
-using Segment.Flush;
-using Segment.Model;
-using Segment.Request;
+using Meergo.Flush;
+using Meergo.Model;
+using Meergo.Request;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture()]
     public class ClientTests

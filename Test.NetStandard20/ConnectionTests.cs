@@ -8,10 +8,10 @@ using EmbedIO;
 using EmbedIO.Actions;
 using Moq;
 using NUnit.Framework;
-using Segment.Model;
-using Segment.Request;
+using Meergo.Model;
+using Meergo.Request;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture()]
     public class ConnectionTests
@@ -45,14 +45,14 @@ namespace Segment.Test
         {
             Stopwatch watch = new Stopwatch();
 
-            // Set invalid host address and make timeout to 1s
+            // Set invalid endpoint and make timeout to 1s
             var config = new Config().SetAsync(false);
-            config.SetHost("https://fake.segment-server.com");
+            config.SetEndpoint("https://fake.meergo.com");
             config.SetTimeout(new TimeSpan(0, 0, 1));
             config.SetMaxRetryTime(new TimeSpan(0, 0, 10));
             Analytics.Initialize(Constants.WRITE_KEY, config);
 
-            // Calculate working time for Identiy message with invalid host address
+            // Calculate working time for Identiy message with invalid endpoint
             watch.Start();
             Actions.Identify(Analytics.Client);
             watch.Stop();
@@ -71,13 +71,13 @@ namespace Segment.Test
         {
             Stopwatch watch = new Stopwatch();
 
-            // Set invalid host address and make timeout to 1s
+            // Set invalid endpoint and make timeout to 1s
             var config = new Config().SetAsync(false);
-            config.SetHost("https://fake.segment-server.com");
+            config.SetEndpoint("https://fake.meergo.com");
             config.SetTimeout(new TimeSpan(0, 0, 1));
             Analytics.Initialize(Constants.WRITE_KEY, config);
 
-            // Calculate working time for Identiy message with invalid host address
+            // Calculate working time for Identiy message with invalid endpoint
             watch.Start();
             Actions.Identify(Analytics.Client);
             watch.Stop();
@@ -109,9 +109,9 @@ namespace Segment.Test
             using (var DummyServer = new WebServer(DummyServerUrl))
             {
 
-                // Set invalid host address and make timeout to 1s
+                // Set invalid endpoint and make timeout to 1s
                 var config = new Config().SetAsync(false);
-                config.SetHost(DummyServerUrl);
+                config.SetEndpoint(DummyServerUrl);
                 config.SetTimeout(new TimeSpan(0, 0, 1));
                 config.SetMaxRetryTime(new TimeSpan(0, 0, 10));
                 Analytics.Initialize(Constants.WRITE_KEY, config);
@@ -125,7 +125,7 @@ namespace Segment.Test
                         ResponseCode = HttpStatusCode.Gone,
                         ShouldRetry = false,
                         Timeout = 10000,
-                        BaseActionUrl = "/ServerGone"
+                        BaseActionUrl = "/ServerGone/"
                     },
                     // 429 error requires retry
                     new RetryErrorTestCase()
@@ -134,7 +134,7 @@ namespace Segment.Test
                         ResponseCode = (HttpStatusCode)429,
                         ShouldRetry = true,
                         Timeout = 10000,
-                        BaseActionUrl = "/TooManyRequests"
+                        BaseActionUrl = "/TooManyRequests/"
                     },
                     // Server errors require retry
                     new RetryErrorTestCase()
@@ -143,7 +143,7 @@ namespace Segment.Test
                         ResponseCode = HttpStatusCode.BadGateway,
                         ShouldRetry = true,
                         Timeout = 10000,
-                        BaseActionUrl = "/BadGateWay"
+                        BaseActionUrl = "/BadGateWay/"
                     }
                 };
 
@@ -161,8 +161,8 @@ namespace Segment.Test
 
                 foreach (var testCase in TestCases) 
                 {
-                    Analytics.Client.Config.SetHost(DummyServerUrl + testCase.BaseActionUrl);
-                    // Calculate working time for Identiy message with invalid host address
+                    Analytics.Client.Config.SetEndpoint(DummyServerUrl + testCase.BaseActionUrl);
+                    // Calculate working time for Identiy message with invalid endpoint
                     watch.Reset();
                     watch.Start();
                     Actions.Identify(Analytics.Client);
@@ -189,9 +189,9 @@ namespace Segment.Test
             using (var DummyServer = new WebServer(DummyServerUrl))
             {
 
-                // Set invalid host address and make timeout to 1s
+                // Set invalid endpoint and make timeout to 1s
                 var config = new Config().SetAsync(false);
-                config.SetHost(DummyServerUrl);
+                config.SetEndpoint(DummyServerUrl);
                 config.SetTimeout(new TimeSpan(0, 0, 1));
                 Analytics.Initialize(Constants.WRITE_KEY, config);
 
@@ -204,7 +204,7 @@ namespace Segment.Test
                         ResponseCode = HttpStatusCode.Gone,
                         ShouldRetry = false,
                         Timeout = 10000,
-                        BaseActionUrl = "/ServerGone"
+                        BaseActionUrl = "/ServerGone/"
                     },
                     // 429 error requires retry
                     new RetryErrorTestCase()
@@ -213,7 +213,7 @@ namespace Segment.Test
                         ResponseCode = (HttpStatusCode)429,
                         ShouldRetry = true,
                         Timeout = 10000,
-                        BaseActionUrl = "/TooManyRequests"
+                        BaseActionUrl = "/TooManyRequests/"
                     },
                     // Server errors require retry
                     new RetryErrorTestCase()
@@ -222,7 +222,7 @@ namespace Segment.Test
                         ResponseCode = HttpStatusCode.BadGateway,
                         ShouldRetry = true,
                         Timeout = 10000,
-                        BaseActionUrl = "/BadGateWay"
+                        BaseActionUrl = "/BadGateWay/"
                     }
                 };
 
@@ -240,8 +240,8 @@ namespace Segment.Test
 
                 foreach (var testCase in TestCases)
                 {
-                    Analytics.Client.Config.SetHost(DummyServerUrl + testCase.BaseActionUrl);
-                    // Calculate working time for Identiy message with invalid host address
+                    Analytics.Client.Config.SetEndpoint(DummyServerUrl + testCase.BaseActionUrl);
+                    // Calculate working time for Identiy message with invalid endpoint
                     watch.Reset();
                     watch.Start();
                     Actions.Identify(Analytics.Client);

@@ -1,0 +1,63 @@
+name: CI
+on:
+  workflow_dispatch:
+
+jobs:
+  test-net-8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK 8.0
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'
+
+      - name: Restore dependencies
+        run: dotnet restore Test/Test.csproj
+
+      - name: Build the project
+        run: dotnet build Test/Test.csproj --configuration Release --no-restore
+
+      - name: Run tests with detailed verbosity
+        run: dotnet test Test/Test.csproj --verbosity detailed --no-build
+
+  test-net-4-5:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1
+
+      - name: Restore dependencies
+        run: nuget restore Test.Net45/Test.Net45.csproj
+
+      - name: Build the project
+        run: msbuild /p:Configuration=Release Test.Net45/Test.Net45.csproj
+
+      - name: Run tests with detailed verbosity
+        run: |
+          vstest.console.exe Test.Net45/bin/Release/Test.Net45.dll /Logger:trx
+
+  test-netstandard-2-0:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK 6.0
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore Test.NetStandard20/Test.NetStandard20.csproj
+
+      - name: Build the project
+        run: dotnet build Test.NetStandard20/Test.NetStandard20.csproj --configuration Release --no-restore
+
+      - name: Run tests with detailed verbosity
+        run: dotnet test Test.NetStandard20/Test.NetStandard20.csproj --verbosity detailed --no-build

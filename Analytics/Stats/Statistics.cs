@@ -7,7 +7,7 @@ using System.Threading;
 
 [assembly: InternalsVisibleTo("Test.UniversalApp")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Segment.Stats
+namespace Meergo.Stats
 {
     public class Statistics
     {

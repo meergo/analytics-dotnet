@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Segment.Request
+namespace Meergo.Request
 {
     public class Backo
     {

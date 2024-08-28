@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     public class Actions
     {

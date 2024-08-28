@@ -2,10 +2,10 @@ using NUnit.Framework;
 
 using System.Collections.Generic;
 
-using Segment;
-using Segment.Model;
+using Meergo;
+using Meergo.Model;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture()]
     public class ClientTests

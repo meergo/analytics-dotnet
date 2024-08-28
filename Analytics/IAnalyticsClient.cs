@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Segment.Model;
-using Segment.Stats;
+using Meergo.Model;
+using Meergo.Stats;
 
-namespace Segment
+namespace Meergo
 {
     public delegate void FailedHandler(BaseAction action, System.Exception e);
     public delegate void SucceededHandler(BaseAction action);

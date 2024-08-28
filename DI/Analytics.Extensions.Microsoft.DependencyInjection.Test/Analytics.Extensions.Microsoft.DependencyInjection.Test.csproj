@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Analytics.Extensions.Microsoft.DependencyInjection\Analytics.Extensions.Microsoft.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\Analytics\Analytics.csproj" />
   </ItemGroup>
 
 </Project>
