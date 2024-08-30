@@ -26,8 +26,5 @@ jobs:
       - name: Build the test project
         run: dotnet build Test/Test.csproj --configuration Release
 
-      - name: List test project output files
-        run: ls -R Test/bin/Debug/net8.0/
-
       - name: Run tests with detailed verbosity
-        run: dotnet test Test/Test.csproj --verbosity detailed --no-build
+        run: dotnet test Test/Test.csproj --verbosity detailed
