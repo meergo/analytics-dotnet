@@ -1,11 +1,11 @@
 using System;
 using NUnit.Framework;
 using System.Collections.Generic;
-using Segment.Request;
+using Meergo.Request;
 using Moq;
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture()]
     public class ActionTests
@@ -39,7 +39,7 @@ namespace Segment.Test
         public void IdentifyWithCustomOptionsTest()
         {
             var traits = new Model.Traits() {
-                { "email", "friends@segment.com" }
+                { "email", "friends@meergo.com" }
             };
             var options = new Model.Options()
                 .SetIntegration("Vero", new Model.Dict() {

@@ -2,11 +2,11 @@ using System;
 using NUnit.Framework;
 using System.Collections.Generic;
 using Moq;
-using Segment.Request;
-using Segment.Model;
+using Meergo.Request;
+using Meergo.Model;
 using System.Threading.Tasks;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture()]
     public class ActionTests

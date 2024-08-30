@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Segment.Flush;
-using Segment.Model;
-using Segment.Request;
-using Segment.Stats;
+using Meergo.Flush;
+using Meergo.Model;
+using Meergo.Request;
+using Meergo.Stats;
 
-namespace Segment
+namespace Meergo
 {
 
     /// <summary>
-    /// A Segment.io .NET client
+    /// A Meergo .NET client
     /// </summary>
     public class Client : IAnalyticsClient
     {

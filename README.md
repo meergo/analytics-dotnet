@@ -1,56 +1,32 @@
-﻿Analytics.NET
-=============
+﻿# Meergo C# SDK
 
-Analytics.NET is a .NET / C# / F# client for [Segment](https://segment.com).
+The Meergo C# SDK lets you send customer event data from your .NET applications to your specified destinations.
 
-### ⚠️ Community ⚠️
-This library is community supported. Segment does not manage or update this library. We suggest forking the repo if changes are needed for your project.
+## SDK setup requirements
 
-We highly recommend using our upgraded [Analytics-CSharp](https://github.com/segmentio/Analytics-CSharp) to benefit from feature enhancements and ongoing support.
+- Set up a Meergo account.
+- Set up a .NET source in the dashboard.
+- Copy the write key and the endpoint.
 
+## Using the SDK
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/16131737/53616452-690beb00-3b97-11e9-94a1-4ec219002644.png"/>
-  <p><b><i>You can't fix what you can't measure</i></b></p>
-</div>
+```csharp
+using Meergo.Analytics;
 
-Analytics helps you measure your users, product, and business. It unlocks insights into your app's funnel, core business metrics, and whether you have product-market fit.
+var config = new Config()
+    .SetEndpoint("YOUR_ENDPOINT");
 
-## How to get started
-1. **Collect analytics data** from your app(s).
-    - The top 200 Segment companies collect data from 5+ source types (web, mobile, server, CRM, etc.).
-2. **Send the data to analytics tools** (for example, Google Analytics, Amplitude, Mixpanel).
-    - Over 250+ Segment companies send data to eight categories of destinations such as analytics tools, warehouses, email marketing and remarketing systems, session recording, and more.
-3. **Explore your data** by creating metrics (for example, new signups, retention cohorts, and revenue generation).
-    - The best Segment companies use retention cohorts to measure product market fit. Netflix has 70% paid retention after 12 months, 30% after 7 years.
+Analytics.Initialize("YOUR_WRITE_KEY", config);
 
-[Segment](https://segment.com) collects analytics data and allows you to send it to more than 250 apps (such as Google Analytics, Mixpanel, Optimizely, Facebook Ads, Slack, Sentry) just by flipping a switch. You only need one Segment code snippet, and you can turn integrations on and off at will, with no additional code. [Sign up with Segment today](https://app.segment.com/signup).
+Analytics.Client.Track("Efg678Mnu", "Product added to cart", new Properties() {
+    { "price", 32.17 }
+});
+```
 
-### Why?
-1. **Power all your analytics apps with the same data**. Instead of writing code to integrate all of your tools individually, send data to Segment, once.
+## Sending events
 
-2. **Install tracking for the last time**. We're the last integration you'll ever need to write. You only need to instrument Segment once. Reduce all of your tracking code and advertising tags into a single set of API calls.
+Refer to the Meergo events documentation for more information on the supported event types.
 
-3. **Send data from anywhere**. Send Segment data from any device, and we'll transform and send it on to any tool.
+## License
 
-4. **Query your data in SQL**. Slice, dice, and analyze your data in detail with Segment SQL. We'll transform and load your customer behavioral data directly from your apps into Amazon Redshift, Google BigQuery, or Postgres. Save weeks of engineering time by not having to invent your own data warehouse and ETL pipeline.
-
-    For example, you can capture data on any app:
-    ```js
-    analytics.track('Order Completed', { price: 99.84 })
-    ```
-    Then, query the resulting data in SQL:
-    ```sql
-    select * from app.order_completed
-    order by price desc
-    ```
-
-### 🚀 Startup Program
-<div align="center">
-  <a href="https://segment.com/startups"><img src="https://user-images.githubusercontent.com/16131737/53128952-08d3d400-351b-11e9-9730-7da35adda781.png" /></a>
-</div>
-If you are part of a new startup  (&lt;$5M raised, &lt;2 years since founding), we just launched a new startup program for you. You can get a Segment Team plan  (up to <b>$25,000 value</b> in Segment credits) for free up to 2 years — <a href="https://segment.com/startups/">apply here</a>!
-
-## Documentation
-
-Documentation is available at [https://segment.com/libraries/.net](https://segment.com/libraries/.net).
+The Meergo C# SDK is released under the [MIT license](License.md).

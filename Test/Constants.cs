@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     public class Constants
     {
-        // project segmentio/dotnet-test
+        // project meergo/dotnet-test
         public static string WRITE_KEY = "r7bxis28wy";
     }
 }

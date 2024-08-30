@@ -1,5 +1,6 @@
 The MIT License (MIT)
 
+Copyright 2024 Open2b
 Copyright 2012 Segment.io, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

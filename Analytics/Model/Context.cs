@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Segment.Model
+namespace Meergo.Model
 {
     public class Context : Dict
     {

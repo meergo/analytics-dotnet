@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Flush
+namespace Meergo.Flush
 {
     class ActionSizeCalculator
     {

@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using Microsoft.Extensions.DependencyInjection;
-using Segment;
+using Meergo;
 
 namespace Analytics.Extensions.Microsoft.DependencyInjection.Test
 {

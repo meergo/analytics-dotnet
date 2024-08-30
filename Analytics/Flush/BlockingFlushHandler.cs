@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Segment.Model;
-using Segment.Request;
+using Meergo.Model;
+using Meergo.Request;
 
-namespace Segment.Flush
+namespace Meergo.Flush
 {
     internal class BlockingFlushHandler : IAsyncFlushHandler
     {

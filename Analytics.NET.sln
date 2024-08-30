@@ -8,19 +8,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C316F1BB-6C70-4DEB-BC04-5664C39313F3}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Net35", "Test.Net35\Test.Net35.csproj", "{14046A5D-168B-4320-B031-C72BEE19F206}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.NetStandard20", "Test.NetStandard20\Test.NetStandard20.csproj", "{9D2DF2FC-3977-418C-8E0B-B98A48F596B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Net45", "Test.Net45\Test.Net45.csproj", "{A7B43E75-BA62-4543-A467-27C6D9B28EB8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.UniversalApp", "Test.UniversalApp\Test.UniversalApp.csproj", "{E54D766D-3E91-47C5-901B-FFCCCACD60CC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.E2E", "Test.E2E\Test.E2E.csproj", "{E6D4DE50-ED07-4F7C-ABD8-F0600BD17D24}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DI", "DI", "{72D463DB-E9BA-4F11-B1D2-92192470D1D3}"
 EndProject
@@ -35,8 +28,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sloth.Common", "Samples\Sloth.Common\Sloth.Common.csproj", "{CB42E721-2A0C-4F88-8A38-18389D7332E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sloth.Enterprise", "Samples\Sloth.Enterprise\Sloth.Enterprise.csproj", "{2D0EFD93-19FF-4197-99B6-CEF02C6179D1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Net50", "Test.Net50\Test.Net50.csproj", "{E3A2A7F1-D69E-49CA-BB83-7A0B0C083196}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

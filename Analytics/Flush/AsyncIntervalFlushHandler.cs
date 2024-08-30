@@ -1,11 +1,11 @@
-using Segment.Model;
-using Segment.Request;
+using Meergo.Model;
+using Meergo.Request;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Segment.Flush
+namespace Meergo.Flush
 {
 
     internal class AsyncIntervalFlushHandler : IAsyncFlushHandler

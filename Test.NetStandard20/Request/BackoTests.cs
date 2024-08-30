@@ -4,9 +4,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Segment.Request;
+using Meergo.Request;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture]
     class BackoTests

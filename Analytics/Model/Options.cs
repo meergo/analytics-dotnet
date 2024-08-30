@@ -1,8 +1,8 @@
 using System;
 
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Model
+namespace Meergo.Model
 {
     public class Options
     {
@@ -75,7 +75,7 @@ namespace Segment.Model
 
         /// <summary>
         /// Enable destination specific options for integration.
-        /// For example, to send tags in https://segment.com/docs/destinations/vero/#tags, use following
+        /// For example, to send tags use following
         ///   new Options()
         ///     .Integration("Vero", new Model.Dict() {
         ///         "tags", new Model.Dict() {

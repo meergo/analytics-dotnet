@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment
+namespace Meergo
 {
     /// <summary>
     /// Analytics Logging
@@ -27,7 +27,7 @@ namespace Segment
         /// <summary>
         /// A logging event handler.   
         /// </summary>
-        /// <param name="level">The <see cref="Segment.Logger.Level"/> of the log event (debug, info, warn, error)</param>
+        /// <param name="level">The <see cref="Meergo.Logger.Level"/> of the log event (debug, info, warn, error)</param>
         /// <param name="message">The log message</param>
         /// <param name="args">Optional arguments for the message</param>
         public delegate void LogHandler(Level level, string message, IDictionary<string, object> args);

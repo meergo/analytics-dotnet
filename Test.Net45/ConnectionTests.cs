@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using Segment.Model;
-using Segment.Request;
+using Meergo.Model;
+using Meergo.Request;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture()]
     public class ConnectionTests
@@ -42,14 +42,14 @@ namespace Segment.Test
         {
             Stopwatch watch = new Stopwatch();
 
-            // Set invalid host address and make timeout to 1s
+            // Set invalid endpoint and make timeout to 1s
             var config = new Config().SetAsync(false);
-            config.SetHost("https://fake.segment-server.com");
+            config.SetEndpoint("https://fake.meergo.com");
             config.SetTimeout(new TimeSpan(0, 0, 1));
             config.SetMaxRetryTime(new TimeSpan(0, 0, 10));
             Analytics.Initialize(Constants.WRITE_KEY, config);
 
-            // Calculate working time for Identiy message with invalid host address
+            // Calculate working time for Identiy message with invalid endpoint
             watch.Start();
             Actions.Identify(Analytics.Client);
             watch.Stop();
@@ -68,13 +68,13 @@ namespace Segment.Test
         {
             Stopwatch watch = new Stopwatch();
 
-            // Set invalid host address and make timeout to 1s
+            // Set invalid endpoint and make timeout to 1s
             var config = new Config().SetAsync(false);
-            config.SetHost("https://fake.segment-server.com");
+            config.SetEndpoint("https://fake.meergo.com");
             config.SetTimeout(new TimeSpan(0, 0, 1));
             Analytics.Initialize(Constants.WRITE_KEY, config);
 
-            // Calculate working time for Identiy message with invalid host address
+            // Calculate working time for Identiy message with invalid endpoint
             watch.Start();
             Actions.Identify(Analytics.Client);
             watch.Stop();

@@ -4,10 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using Segment.Model;
-using Segment.Request;
+using Meergo.Model;
+using Meergo.Request;
 
-namespace Segment.Test
+namespace Meergo.Test
 {
     [TestFixture()]
     public class FlushTests

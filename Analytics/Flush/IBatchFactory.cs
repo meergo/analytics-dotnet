@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using Segment.Model;
+using Meergo.Model;
 
-namespace Segment.Flush
+namespace Meergo.Flush
 {
     internal interface IBatchFactory
     {
