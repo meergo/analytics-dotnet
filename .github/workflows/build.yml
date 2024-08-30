@@ -43,15 +43,18 @@ jobs:
           vstest.console.exe Test.Net45/bin/Release/Test.Net45.dll /Logger:trx
 
   test-netstandard-2-0:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET SDK 6.0
+      - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1
 
       - name: Restore dependencies
         run: dotnet restore Test.NetStandard20/Test.NetStandard20.csproj
