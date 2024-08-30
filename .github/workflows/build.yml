@@ -28,3 +28,29 @@ jobs:
 
       - name: Run tests with detailed verbosity
         run: dotnet test Test/Test.csproj --verbosity detailed
+
+  test-netstandard-2-0:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK 6.0
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore Analytics/Analytics.csproj
+
+      - name: Build the project
+        run: dotnet build Analytics/Analytics.csproj --configuration Release
+
+      - name: Restore test dependencies
+        run: dotnet restore Test.NetStandard20/Test.NetStandard20.csproj
+
+      - name: Build the test project
+        run: dotnet build Test.NetStandard20/Test.NetStandard20.csproj --configuration Release
+
+      - name: Run tests with detailed verbosity
+        run: dotnet test Test.NetStandard20/Test.NetStandard20.csproj --verbosity detailed
