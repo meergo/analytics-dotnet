@@ -23,5 +23,8 @@ jobs:
       - name: Restore test dependencies
         run: dotnet restore Test/Test.csproj
 
+      - name: Build the test project
+        run: dotnet build Test/Test.csproj --configuration Release
+
       - name: Run tests with detailed verbosity
         run: dotnet test Test/Test.csproj --verbosity detailed --no-build
