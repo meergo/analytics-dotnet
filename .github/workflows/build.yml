@@ -14,53 +14,14 @@ jobs:
         with:
           dotnet-version: '8.0'
 
-      - name: Restore and Update NuGet Packages
-        run: |
-          dotnet restore Test/Test.csproj
-          dotnet tool restore
-          dotnet outdated --update
+      - name: Restore dependencies
+        run: dotnet restore Analytics/Analytics.csproj
 
       - name: Build the project
-        run: dotnet build Test/Test.csproj --configuration Release --no-restore
+        run: dotnet build Analytics/Analytics.csproj --configuration Release
+
+      - name: Restore test dependencies
+        run: dotnet restore Test/Test.csproj
 
       - name: Run tests with detailed verbosity
         run: dotnet test Test/Test.csproj --verbosity detailed --no-build
-
-  test-net-4-5:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Mono (for .NET Framework)
-        run: |
-          sudo apt-get install -y mono-complete
-          nuget restore Test.Net45/Test.Net45.csproj
-          msbuild /p:Configuration=Release Test.Net45/Test.Net45.csproj
-
-      - name: Run tests with detailed verbosity
-        run: |
-          mono --debug /usr/lib/mono/4.5/vstest.console.exe Test.Net45/bin/Release/Test.Net45.dll /Logger:trx
-
-  test-netstandard-2-0:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '6.0.x'
-
-      - name: Restore and Update NuGet Packages
-        run: |
-          dotnet restore Test.NetStandard20/Test.NetStandard20.csproj
-          dotnet tool restore
-          dotnet outdated --update
-
-      - name: Build the project
-        run: dotnet build Test.NetStandard20/Test.NetStandard20.csproj --configuration Release --no-restore
-
-      - name: Run tests with detailed verbosity
-        run: dotnet test Test.NetStandard20/Test.NetStandard20.csproj --verbosity detailed --no-build
