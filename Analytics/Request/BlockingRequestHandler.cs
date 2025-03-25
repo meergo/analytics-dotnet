@@ -155,19 +155,19 @@ namespace Meergo.Request
             _backo.Reset();
             try
             {
-                Uri uri = new Uri(_client.Config.Endpoint + "b");
+                Uri uri = new Uri(_client.Config.Endpoint);
 
                 // set the current request time
                 batch.SentAt = DateTime.Now.ToString("o");
 
                 string json = JsonConvert.SerializeObject(batch);
 
-                // Basic Authentication
+                // Bearer Authentication
 #if NET35
-                _httpClient.Headers.Set("Authorization", "Basic " + BasicAuthHeader(batch.WriteKey, string.Empty));
+                _httpClient.Headers.Set("Authorization", "Bearer " + batch.WriteKey);
                 _httpClient.Headers.Set("Content-Type", "application/json; charset=utf-8");
 #else
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", BasicAuthHeader(batch.WriteKey, string.Empty));
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", batch.WriteKey);
 #endif
                 // Prepare request data;
                 var requestData = Encoding.UTF8.GetBytes(json);
@@ -403,12 +403,6 @@ namespace Meergo.Request
                 { "batch id", batch.MessageId },
                 { "duration (ms)", duration }
             });
-        }
-
-        private string BasicAuthHeader(string user, string pass)
-        {
-            string val = user + ":" + pass;
-            return Convert.ToBase64String(Encoding.UTF8.GetBytes(val));
         }
     }
 }
