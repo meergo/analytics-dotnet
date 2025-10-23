@@ -6,20 +6,20 @@ The Meergo C# SDK lets you send customer event data from your .NET applications 
 
 - Set up a Meergo account.
 - Set up a .NET source in the dashboard.
-- Copy the write key and the endpoint.
+- Copy the event write key and the endpoint.
 
 ## Using the SDK
 
 ```csharp
-using Meergo.Analytics;
+using Meergo;
 
 var config = new Config()
     .SetEndpoint("YOUR_ENDPOINT");
 
 Analytics.Initialize("YOUR_WRITE_KEY", config);
 
-Analytics.Client.Track("Efg678Mnu", "Product added to cart", new Properties() {
-    { "price", 32.17 }
+Analytics.Client.Track("Efg678Mnu", "Product added to cart", new Dictionary<string, object> {
+    { "price", 32.17 },
 });
 ```
 
