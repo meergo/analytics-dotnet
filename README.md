@@ -13,14 +13,16 @@ The Meergo C# SDK lets you send customer event data from your .NET applications 
 ```csharp
 using Meergo;
 
-var config = new Config()
-    .SetEndpoint("YOUR_ENDPOINT");
+var config = new Config().SetEndpoint("<endpoint>");
 
-Analytics.Initialize("YOUR_WRITE_KEY", config);
+Analytics.Initialize("<event write key>", config);
 
 Analytics.Client.Track("Efg678Mnu", "Product added to cart", new Dictionary<string, object> {
     { "price", 32.17 },
 });
+
+Analytics.Client.Flush();
+Analytics.Client.Dispose();
 ```
 
 ## Sending events
