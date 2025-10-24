@@ -1,6 +1,6 @@
-﻿# Meergo C# SDK
+﻿# Meergo .NET SDK
 
-The Meergo C# SDK lets you send customer event data from your .NET applications to your specified destinations.
+The Meergo .NET SDK lets you send customer event data from your .NET applications to your specified destinations.
 
 ## SDK setup requirements
 
@@ -31,4 +31,4 @@ Refer to the Meergo events documentation for more information on the supported e
 
 ## License
 
-The Meergo C# SDK is released under the [MIT license](License.md).
+The Meergo .NET SDK is released under the [MIT license](License.md).
