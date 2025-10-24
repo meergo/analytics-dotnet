@@ -104,7 +104,7 @@ namespace Meergo.Test
         public void GZipTest()
         {
             // Set GZip/Deflate on request header
-            var client = new Client(Constants.WRITE_KEY, new Config().SetAsync(false).SetRequestCompression(true), _mockRequestHandler.Object);
+            var client = new Client(Constants.WRITE_KEY, new Config().SetAsync(false).SetGzip(true), _mockRequestHandler.Object);
             Analytics.Initialize(client);
 
             Actions.Identify(Analytics.Client);

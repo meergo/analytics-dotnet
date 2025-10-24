@@ -277,7 +277,7 @@ namespace Meergo.Test
         public void GZipTestNetStanard20()
         {
             // Set proxy address, like as "http://localhost:8888"
-            var client = new Client(Constants.WRITE_KEY, new Config().SetAsync(false).SetRequestCompression(true), _mockRequestHandler.Object);
+            var client = new Client(Constants.WRITE_KEY, new Config().SetAsync(false).SetGzip(true), _mockRequestHandler.Object);
             Analytics.Initialize(client);
 
             Actions.Identify(Analytics.Client);

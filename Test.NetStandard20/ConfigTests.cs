@@ -40,7 +40,7 @@ namespace Meergo.Test
         [Test]
         public void SetMaxBatchSizeUpdateTheConfigProperty()
         {
-            _config.SetMaxBatchSize(100);
+            _config.SetFlushAt(100);
             Assert.AreEqual(100, _config.FlushAt);
         }
 
