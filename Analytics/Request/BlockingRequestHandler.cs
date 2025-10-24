@@ -81,8 +81,6 @@ namespace Meergo.Request
 
         private readonly Backo _backo;
 
-        private readonly int _maxBackOffDuration;
-
 #if NET35
         private readonly IHttpClient _httpClient;
 #else
