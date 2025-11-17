@@ -5,6 +5,32 @@ on:
     types: [published]
 
 jobs:
+  test-dependency-injection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK 6.0
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore Analytics/Analytics.csproj
+
+      - name: Build the project
+        run: dotnet build Analytics/Analytics.csproj --configuration Release
+
+      - name: Restore test dependencies
+        run: dotnet restore DI/Analytics.Extensions.Microsoft.DependencyInjection.Test/Analytics.Extensions.Microsoft.DependencyInjection.Test.csproj
+
+      - name: Build the test project
+        run: dotnet build DI/Analytics.Extensions.Microsoft.DependencyInjection.Test/Analytics.Extensions.Microsoft.DependencyInjection.Test.csproj --configuration Release
+
+      - name: Run tests with detailed verbosity
+        run: dotnet test DI/Analytics.Extensions.Microsoft.DependencyInjection.Test/Analytics.Extensions.Microsoft.DependencyInjection.Test.csproj --verbosity detailed
+
   test-net-8:
     runs-on: ubuntu-latest
     steps:
