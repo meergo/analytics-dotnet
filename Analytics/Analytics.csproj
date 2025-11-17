@@ -11,6 +11,7 @@
     <PackageTags>analytics, Meergo</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/meergo/analytics-dotnet.git</RepositoryUrl>
+    <PackageProjectUrl>https://www.meergo.com/</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
