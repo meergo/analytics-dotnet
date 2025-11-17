@@ -13,6 +13,7 @@
     <RepositoryUrl>https://github.com/meergo/analytics-dotnet.git</RepositoryUrl>
     <PackageProjectUrl>https://www.meergo.com/</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
