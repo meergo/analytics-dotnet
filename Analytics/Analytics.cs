@@ -2,8 +2,7 @@ namespace Meergo
 {
     public class Analytics
     {
-        // REMINDER: don't forget to set Properties.AssemblyInfo.AssemblyVersion as well
-        public static string VERSION = "3.8.1";
+        public static string VERSION = "0.0.1";
 
         /// <summary>
         /// Lock for thread-safety
