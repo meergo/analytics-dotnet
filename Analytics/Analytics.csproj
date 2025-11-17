@@ -4,11 +4,14 @@
     <TargetFrameworks>net6.0;net7.0;net8.0;netstandard2.0</TargetFrameworks>
     <RootNamespace>Meergo</RootNamespace>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageId>Analytics</PackageId>
+    <PackageId>Meergo.Analytics</PackageId>
     <Version>0.0.1</Version>
     <Authors>Open2b</Authors>
     <Description>The .NET API for analytics, by Meergo</Description>
+    <PackageTags>analytics, Meergo</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/meergo/analytics-dotnet.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
