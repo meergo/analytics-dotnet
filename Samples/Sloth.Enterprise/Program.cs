@@ -25,8 +25,8 @@ namespace Sloth.Enterprise
             var config = new Config()
                 .SetMaxQueueSize(100000)
                 .SetEndpoint(endpoint)
-                .SetMaxBatchSize(40)
-                .SetRequestCompression(true);
+                .SetFlushAt(40)
+                .SetGzip(true);
 
             Analytics.Initialize(writeKey, config);
 
