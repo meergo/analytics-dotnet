@@ -7,7 +7,7 @@
     <PackageId>Meergo.Analytics</PackageId>
     <Version>0.0.1</Version>
     <Authors>Open2b</Authors>
-    <Description>The .NET API for analytics, by Meergo</Description>
+    <Description>The .NET SDK for analytics, by Meergo</Description>
     <PackageTags>analytics, Meergo</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/meergo/analytics-dotnet.git</RepositoryUrl>
