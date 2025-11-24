@@ -1,6 +1,6 @@
-# Developers 🛠️
+# Contributing
 
-This file contains information useful for developers working with the Meergo .NET SDK.
+This file contains information useful for contributing to the Meergo .NET SDK.
 
 ## Testing the SDK
 
